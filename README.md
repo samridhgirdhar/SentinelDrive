@@ -2,7 +2,7 @@
 
 > **“Enhancing human reflexes with silicon instincts.”**
 
-![SentinelDrive Banner](media/4.mp4)
+![SentinelDrive Banner](media/1.jpeg)
 
 [![Build](https://img.shields.io/github/actions/workflow/status/your‑org/sentineldrive/ci.yml?style=flat-square)](…)
 [![License](https://img.shields.io/github/license/your‑org/sentineldrive?style=flat-square)](LICENSE)
@@ -13,10 +13,10 @@
 
 ## ✨ TL;DR
 
-SentinelDrive fuses **Computer‑Vision steering analysis**, **ultrasonic blind‑spot detection**, and a **voice‑activated AI co‑pilot (Sheero)** into a single open‑source stack.  It watches the road, senses obstacles, keeps an eye on driver well‑being, *and* chats back using a local LLM – all in < 80 W on a Raspberry Pi 5 + Arduino Nano.
+SentinelDrive fuses **Computer‑Vision steering analysis**, **ultrasonic blind‑spot detection**, and a **voice‑activated AI co‑pilot (Gogi)** into a single open‑source stack.  It watches the road, senses obstacles, keeps an eye on driver well‑being, *and* chats back using a local LLM – all in < 80 W on a Raspberry Pi 5 + Arduino Nano.
 
 <table>
-<tr><th align="center">👁️ CV_SafetySuite</th><th align="center">🔊 Sheero AI Assistant</th><th align="center">📡 Arduino Blind‑Spot Module</th></tr>
+<tr><th align="center">👁️ CV_SafetySuite</th><th align="center">🔊 Gogi AI Assistant</th><th align="center">📡 Arduino Blind‑Spot Module</th></tr>
 <tr><td valign="top"><ul><li>Drowsiness, drunk, stress & steering detection</li><li>Real‑time <code>&lt;35 ms</code> inference on Pi GPU</li><li>EAR, head‑pose &amp; HSV tracking pipelines</li></ul></td><td valign="top"><ul><li>Wake‑word “gogi” + fast Vosk ASR</li><li>Context‑aware tips via local <strong>Mistral‑7B</strong></li><li>Glowing Web dashboard with animations</li></ul></td><td valign="top"><ul><li>4× HC‑SR04 ultrasonic sensors per flank</li><li>&lt;100 cm proximity buzzer alerts</li><li>CAN‑Bus‑style serial to Pi controller</li></ul></td></tr>
 </table>
 
@@ -50,7 +50,7 @@ SentinelDrive fuses **Computer‑Vision steering analysis**, **ultrasonic blind�
 * Dual flanks instrumented with **4× HC‑SR04** sensors scanning every 500 ms.
 * Turn‑signal + distance <100 cm → *directional* buzzer.  False‑positives squashed by conjunctive logic.
 
-### 3. Sheero – Voice AI Co‑Pilot
+### 3. Gogi – Voice AI Co‑Pilot
 
 * Hands‑free wake‑word **“gogi”** and 10 s natural‑language command window.
 * Local **Mistral** model (via [Ollama](https://github.com/jmorganca/ollama)) serves hyper‑concise driving advice.
@@ -66,7 +66,7 @@ flowchart TD
     %% Edge Device block
     subgraph EDGE_DEVICE["Edge Device<br/>(Raspberry Pi 5)"]
         CV["CV_SafetySuite (service)"]
-        VA["Sheero Flask server"]
+        VA["Gogi Flask server"]
     end
 
     %% Arduino block
@@ -117,7 +117,7 @@ $ python src/VoiceAssistant.py  # spawns CV & dashboard workers automatically
 .
 ├── src/
 │   ├── CV_SafetySuite.ipynb   # Jupyter prototype – convert to .py for prod
-│   ├── VoiceAssistant.py      # Sheero AI assistant
+│   ├── VoiceAssistant.py      # Gogi AI assistant
 │   └── modules/              # Reusable OpenCV & signal helpers
 ├── firmware/
 │   └── blindspot.ino         # Arduino Nano sketch
