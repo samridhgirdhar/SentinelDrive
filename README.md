@@ -2,7 +2,7 @@
 
 > **“Enhancing human reflexes with silicon instincts.”**
 
-![SentinelDrive Banner](docs/assets/banner.png)
+![SentinelDrive Banner](media/4.mp4)
 
 [![Build](https://img.shields.io/github/actions/workflow/status/your‑org/sentineldrive/ci.yml?style=flat-square)](…)
 [![License](https://img.shields.io/github/license/your‑org/sentineldrive?style=flat-square)](LICENSE)
